@@ -1,0 +1,29 @@
+<section>
+  <form [formGroup]="creditCardForm">
+    <div>
+      <label for="cardHolderName">CARDHOLDER NAME</label>
+      <input placeholder="e.g. Jane Appleseed" type="text" id="cardHolderName" formControlName="name" />
+    </div>
+
+    <div>
+      <label for="cardNumber">CARD NUMBER</label>
+      <input placeholder="e.g. 1234 5678 9123 0000" type="text" id="cardNumber" formControlName="cardNumber" />
+    </div>
+    <div class="inline-form">
+      <div>
+        <label for="expirationDate">EXP. DATE (MM/YY)</label>
+        <div class="expiration-date-inputs">
+          <input placeholder="MM" type="text" id="expirationDate" formControlName="expirationDateMonth" />
+          <input placeholder="YY" type="text" id="expirationDate" formControlName="expirationDateYear" />
+        </div>
+      </div>
+
+      <div>
+        <label for="securityCode">CVC</label>
+        <input placeholder="e.g. 123" type="text" id="securityCode" formControlName="cvc" />
+      </div>
+    </div>
+
+    <button (click)="submitForm()">Confirm</button>
+  </form>
+</section>

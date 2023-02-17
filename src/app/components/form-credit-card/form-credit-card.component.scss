@@ -1,0 +1,27 @@
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5em;
+  width: 45vw;
+  margin: auto;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inline-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.expiration-date-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.8em;
+}
