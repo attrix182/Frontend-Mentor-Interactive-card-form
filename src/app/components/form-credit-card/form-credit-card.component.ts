@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ValidatorFormUtility } from 'src/app/shared/validator-form.utility';
 
@@ -9,6 +9,8 @@ import { ValidatorFormUtility } from 'src/app/shared/validator-form.utility';
 })
 export class FormCreditCardComponent extends ValidatorFormUtility implements OnInit {
 
+  @Output('getCardForm') getCardForm = new EventEmitter<any>();
+
   constructor(private formBuilder: FormBuilder) {
     super();
   }
@@ -16,6 +18,12 @@ export class FormCreditCardComponent extends ValidatorFormUtility implements OnI
   ngOnInit(): void {
     this.initForm();
   }
+
+  ngOnChanges(){
+    console.log(this.form.value);
+    this.getCardForm.emit(this.form.value);
+  }
+
 
   initForm() {
     this.form = this.formBuilder.group({
@@ -56,5 +64,6 @@ export class FormCreditCardComponent extends ValidatorFormUtility implements OnI
 
   submitForm() {
     console.log(this.form.value);
+    this.getCardForm.emit(this.form.value);
   }
 }

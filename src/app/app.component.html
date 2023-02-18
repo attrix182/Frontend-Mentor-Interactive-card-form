@@ -2,20 +2,34 @@
   <aside class="bg-gradient">
     <div>
       <div class="card-preview">
-        <picture class="card-front">
-          <img src="../assets/images/bg-card-front.png" alt="Credit Card" />
-        </picture>
+        <article class="card card-front">
+          <div>
+            <div class="card-number">
+            <span>{{card.cardNumber}}</span>
+            <span *ngIf="!card.cardNumber">0000 0000 0000 0000</span>
+            </div>
+          </div>
+          <picture>
+            <img src="../assets/images/bg-card-front.png" alt="Credit Card" />
+          </picture>
+        </article>
 
-        <picture class="card-back">
-          <img src="../assets/images/bg-card-back.png" alt="Credit Card" />
-        </picture>
+        <article class="card card-back">
+          <div>
+            <div class="card-cvc">
+            <span>{{card.cvc}}</span>
+            <span *ngIf="!card.cvc">000</span>
+            </div>
+          </div>
+          <picture>
+            <img src="../assets/images/bg-card-back.png" alt="Credit Card" />
+          </picture>
+        </article>
       </div>
     </div>
   </aside>
 
   <section class="form-container">
-    <app-form-credit-card></app-form-credit-card>
+    <app-form-credit-card (getCardForm)="card = $event"></app-form-credit-card>
   </section>
 </section>
-
-<!-- Thank you! We've added your card details Continue -->
