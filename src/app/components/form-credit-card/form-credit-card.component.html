@@ -7,23 +7,35 @@
 
     <div>
       <label for="cardNumber">CARD NUMBER</label>
-      <input placeholder="e.g. 1234 5678 9123 0000" type="text" id="cardNumber" formControlName="cardNumber" />
-    </div>
-    <div class="inline-form">
+      <input [class.error]="showError" placeholder="e.g. 1234 5678 9123 0000" type="text" id="cardNumber" formControlName="cardNumber" />
       <div>
+        <small class="msg-error" *ngIf="!showError"> &nbsp;</small>
+            <small class="msg-error" *ngIf="showError">Wrong format, numbers only</small>
+      </div>
+    </div>
+
+    <div class="form-inline">
+      <div class="expiration-date">
         <label for="expirationDate">EXP. DATE (MM/YY)</label>
         <div class="expiration-date-inputs">
           <input placeholder="MM" type="text" id="expirationDate" formControlName="expirationDateMonth" />
           <input placeholder="YY" type="text" id="expirationDate" formControlName="expirationDateYear" />
         </div>
+
+        <!--       <label for="expirationDate">EXP. DATE (MM/YY)</label>
+        <div class="expiration-date-inputs">
+
+          <input placeholder="MM" type="text" id="expirationDate" formControlName="expirationDateMonth" />
+          <input placeholder="YY" type="text" id="expirationDate" formControlName="expirationDateYear" />
+        </div> -->
       </div>
 
-      <div>
+      <div class="cvc-container">
         <label for="securityCode">CVC</label>
         <input placeholder="e.g. 123" type="text" id="securityCode" formControlName="cvc" />
       </div>
     </div>
 
-    <button (click)="submitForm()">Confirm</button>
+    <button (click)="submitForm(); showError = !showError">Confirm</button>
   </form>
 </section>
