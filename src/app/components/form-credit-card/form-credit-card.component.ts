@@ -8,30 +8,44 @@ import { ValidatorFormUtility } from 'src/app/shared/validator-form.utility';
   styleUrls: ['./form-credit-card.component.scss']
 })
 export class FormCreditCardComponent extends ValidatorFormUtility implements OnInit {
-
   @Output('getCardForm') getCardForm = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder) {
     super();
   }
 
-  ngOnInit(): void {
-    this.initForm();
+  emitCardFormChanges() {
+    this.form.valueChanges.subscribe((value) => {
+      this.getCardForm.emit(value);
+    });
   }
 
-  ngOnChanges(){
+  ngOnInit(): void {
+    this.initForm();
+    this.emitCardFormChanges();
+  }
+
+  ngOnChanges() {
     console.log(this.form.value);
     this.getCardForm.emit(this.form.value);
   }
 
-
   initForm() {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      cardNumber: ['', [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(13), Validators.maxLength(18)]],
-      expirationDateMonth: ['', [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(2), Validators.maxLength(2)]],
-      expirationDateYear: ['', [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(2), Validators.maxLength(2)]],
-      cvc: ['', [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(3), Validators.maxLength(6)]],
+      cardNumber: [
+        '',
+        [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(16), Validators.maxLength(18)]
+      ],
+      expirationDateMonth: [
+        '',
+        [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(2), Validators.maxLength(2)]
+      ],
+      expirationDateYear: [
+        '',
+        [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(2), Validators.maxLength(2)]
+      ],
+      cvc: ['', [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(3), Validators.maxLength(6)]]
     });
   }
 
@@ -65,5 +79,12 @@ export class FormCreditCardComponent extends ValidatorFormUtility implements OnI
   submitForm() {
     console.log(this.form.value);
     this.getCardForm.emit(this.form.value);
+    this.form.valid ? this.form.reset() : this.form.markAllAsTouched();
+  }
+
+  wordBreaker() {
+    let breakpoints = [4, 9, 14];
+    let cardNumber = this.form.get('cardNumber').value;
+    if (breakpoints.includes(cardNumber.length)) this.form.get('cardNumber').setValue(cardNumber + ' ');
   }
 }

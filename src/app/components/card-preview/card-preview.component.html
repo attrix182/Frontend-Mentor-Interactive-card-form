@@ -1,0 +1,43 @@
+<div class="card-preview-container">
+  <div class="card-preview">
+    <article class="card card-front">
+      <div class="card-logo">
+        <img src="assets/images/card-logo.svg" alt="Logo" />
+      </div>
+      <div>
+        <div class="card-number">
+          <span>{{ card.cardNumber }}</span>
+          <span *ngIf="!card.cardNumber">0000 0000 0000 0000</span>
+        </div>
+        <div class="footer-card">
+          <div class="card-name">
+            <span>{{ card.name | uppercase }}</span>
+            <span *ngIf="!card.name">JANE APPLESED</span>
+          </div>
+
+          <div class="card-expiration">
+            <span *ngIf="card.expirationDateMonth">{{card.expirationDateMonth}}</span>
+            <span *ngIf="!card.expirationDateMonth">00</span>
+            <span>/</span>
+            <span *ngIf="card.expirationDateYear">{{card.expirationDateYear}}</span>
+            <span *ngIf="!card.expirationDateYear">00</span>
+          </div>
+        </div>
+      </div>
+      <picture>
+        <img class="front-image" src="assets/images/bg-card-front.png" alt="Credit Card" />
+      </picture>
+    </article>
+
+    <article class="card card-back">
+      <div>
+        <div class="card-cvc">
+          <span>{{ card.cvc }}</span>
+          <span *ngIf="!card.cvc">000</span>
+        </div>
+      </div>
+      <picture>
+        <img src="assets/images/bg-card-back.png" alt="Credit Card" />
+      </picture>
+    </article>
+  </div>

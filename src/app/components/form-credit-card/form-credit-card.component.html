@@ -2,7 +2,13 @@
   <form [formGroup]="form">
     <div>
       <label for="cardHolderName">CARDHOLDER NAME</label>
-      <input placeholder="e.g. Jane Appleseed" type="text" formControlName="name" [class]="isValidField('name')" />
+      <input
+        maxlength="27"
+        placeholder="e.g. Jane Appleseed"
+        type="text"
+        formControlName="name"
+        [class]="isValidField('name')"
+      />
       <div>
         <small class="msg-error" *ngIf="showError('name')">{{ getErrorMessage('name') }}</small>
       </div>
@@ -11,10 +17,12 @@
     <div>
       <label for="cardNumber">CARD NUMBER</label>
       <input
+        (keypress)="wordBreaker()"
         placeholder="e.g. 1234 5678 9123 0000"
         type="text"
         formControlName="cardNumber"
         [class]="isValidField('cardNumber')"
+        maxlength="19"
       />
       <div>
         <small class="msg-error" *ngIf="showError('cardNumber')">{{ getErrorMessage('cardNumber') }}</small>
@@ -26,12 +34,14 @@
         <label for="expirationDate">EXP. DATE (MM/YY)</label>
         <div class="expiration-date-inputs">
           <input
+            maxlength="2"
             placeholder="MM"
             type="text"
             formControlName="expirationDateMonth"
             [class]="isValidField('expirationDateMonth')"
           />
           <input
+            maxlength="2"
             placeholder="YY"
             type="text"
             id="expirationDate"
@@ -40,14 +50,21 @@
           />
           <div></div>
         </div>
-        <small class="msg-error" *ngIf="showError('expirationDateMonth') || showError('expirationDateYear')">{{
-          getErrorMessage('expirationDateMonth')
-        }}</small>
+
+        <small class="msg-error" *ngIf="showError('expirationDateMonth') || showError('expirationDateYear')">
+          Can´t be blank
+        </small>
       </div>
 
       <div class="cvc-container">
         <label for="securityCode">CVC</label>
-        <input placeholder="e.g. 123" type="text" formControlName="cvc" [class]="isValidField('cvc')" />
+        <input
+          maxlength="4"
+          type="text"
+          placeholder="e.g. 123"
+          formControlName="cvc"
+          [class]="isValidField('cvc')"
+        />
 
         <small class="msg-error" *ngIf="showError('cvc')">{{ getErrorMessage('cvc') }}</small>
       </div>

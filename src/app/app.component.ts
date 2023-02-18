@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CardModel } from './models/card.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  card: any = {};
+  defaultCard = {
+    name: 'Jane Appleseed',
+    cardNumber: ' 0000 0000 0000 0000',
+    expirationDateMonth: '00',
+    expirationDateYear: '00',
+    cvc: '000'
+  };
+  card: CardModel = this.defaultCard;
 }

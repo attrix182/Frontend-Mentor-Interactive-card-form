@@ -5,9 +5,11 @@ form {
   gap: 1.3em;
   margin: auto;
 
+
   div {
     display: flex;
     flex-direction: column;
+
   }
 
   label {
@@ -64,6 +66,7 @@ form {
   }
 
   .msg-error {
+
     color: var(--red);
     font-size: 0.8em;
     margin-top: 0.8em;
