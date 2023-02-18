@@ -19,6 +19,8 @@
   background-color: var(--white);
 }
 
+
+
 @media screen and (max-width: 1200px) {
   .container {
     flex-direction: column;
@@ -42,21 +44,22 @@
     font-size: 0.6em;
 
     .card-preview {
-      margin-top: -30px;
+        margin-top: -30px;
 
       .card-front {
         right: 10vw;
         top: 23vh;
         z-index: 1;
-        .front-image {
+        .front-image{
           max-width: 80vw;
         }
+
       }
 
       .card-back {
         margin-left: 15vw;
         bottom: 20vh;
-        img {
+        img{
           max-width: 80vw;
         }
       }

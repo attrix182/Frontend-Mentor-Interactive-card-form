@@ -67,20 +67,6 @@
 
 
 @media screen and (max-width: 1200px) {
-  .container {
-    flex-direction: column;
-  }
-  .bg-gradient {
-    width: 100vw;
-    height: 35vh;
-    background-image: url('../assets/images/bg-main-mobile.png');
-  }
-
-  .form-container {
-    margin-left: 0vw;
-    width: 80vw;
-    margin-top: 16vh;
-  }
 
   .card-preview-container {
     display: flex;
@@ -120,4 +106,5 @@
   .card-back {
     margin-left: 10vw !important;
   }
+
 }
