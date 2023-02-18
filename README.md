@@ -1,6 +1,7 @@
 ## Frontend Mentor - Product preview card component
-# Deploy: https://attrix182.github.io/Frontend-Mentor-Interactive-card-form/
-# Challenge: https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw
+Deploy: https://attrix182.github.io/Frontend-Mentor-Interactive-card-form/
+<br />
+Challenge: https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw
 
 Screnshots:
 
