@@ -1,27 +1,13 @@
-# ChallengeInteractiveCardForm
+## Frontend Mentor - Product preview card component
+# Deploy: https://attrix182.github.io/Frontend-Mentor-Interactive-card-form/
+# Challenge: https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+Screnshots:
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Desktop:
+![image](https://user-images.githubusercontent.com/44885834/219903787-b7f4be6d-165d-42c2-a5ab-810f82db37ae.png)
+![image](https://user-images.githubusercontent.com/44885834/219903793-44c6242a-496d-4643-8a82-56eab9aa4f65.png)
+![image](https://user-images.githubusercontent.com/44885834/219903811-f9e61664-8a98-4fae-92f1-a82bd942ecca.png)
+<br />
+Mobile:
+![image](https://user-images.githubusercontent.com/44885834/219903828-7211f0b6-41eb-4a36-b293-77c4244d70b7.png)
