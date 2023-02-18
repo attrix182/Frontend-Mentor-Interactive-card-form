@@ -1,16 +1,23 @@
 <section>
-  <form [formGroup]="creditCardForm">
+  <form [formGroup]="form">
     <div>
       <label for="cardHolderName">CARDHOLDER NAME</label>
-      <input placeholder="e.g. Jane Appleseed" type="text" id="cardHolderName" formControlName="name" />
+      <input placeholder="e.g. Jane Appleseed" type="text" formControlName="name" [class]="isValidField('name')" />
+      <div>
+        <small class="msg-error" *ngIf="showError('name')">{{ getErrorMessage('name') }}</small>
+      </div>
     </div>
 
     <div>
       <label for="cardNumber">CARD NUMBER</label>
-      <input [class.error]="showError" placeholder="e.g. 1234 5678 9123 0000" type="text" id="cardNumber" formControlName="cardNumber" />
+      <input
+        placeholder="e.g. 1234 5678 9123 0000"
+        type="text"
+        formControlName="cardNumber"
+        [class]="isValidField('cardNumber')"
+      />
       <div>
-        <small class="msg-error" *ngIf="!showError"> &nbsp;</small>
-            <small class="msg-error" *ngIf="showError">Wrong format, numbers only</small>
+        <small class="msg-error" *ngIf="showError('cardNumber')">{{ getErrorMessage('cardNumber') }}</small>
       </div>
     </div>
 
@@ -18,24 +25,34 @@
       <div class="expiration-date">
         <label for="expirationDate">EXP. DATE (MM/YY)</label>
         <div class="expiration-date-inputs">
-          <input placeholder="MM" type="text" id="expirationDate" formControlName="expirationDateMonth" />
-          <input placeholder="YY" type="text" id="expirationDate" formControlName="expirationDateYear" />
+          <input
+            placeholder="MM"
+            type="text"
+            formControlName="expirationDateMonth"
+            [class]="isValidField('expirationDateMonth')"
+          />
+          <input
+            placeholder="YY"
+            type="text"
+            id="expirationDate"
+            formControlName="expirationDateYear"
+            [class]="isValidField('expirationDateYear')"
+          />
+          <div></div>
         </div>
-
-        <!--       <label for="expirationDate">EXP. DATE (MM/YY)</label>
-        <div class="expiration-date-inputs">
-
-          <input placeholder="MM" type="text" id="expirationDate" formControlName="expirationDateMonth" />
-          <input placeholder="YY" type="text" id="expirationDate" formControlName="expirationDateYear" />
-        </div> -->
+        <small class="msg-error" *ngIf="showError('expirationDateMonth') || showError('expirationDateYear')">{{
+          getErrorMessage('expirationDateMonth')
+        }}</small>
       </div>
 
       <div class="cvc-container">
         <label for="securityCode">CVC</label>
-        <input placeholder="e.g. 123" type="text" id="securityCode" formControlName="cvc" />
+        <input placeholder="e.g. 123" type="text" formControlName="cvc" [class]="isValidField('cvc')" />
+
+        <small class="msg-error" *ngIf="showError('cvc')">{{ getErrorMessage('cvc') }}</small>
       </div>
     </div>
 
-    <button (click)="submitForm(); showError = !showError">Confirm</button>
+    <button (click)="submitForm()">Confirm</button>
   </form>
 </section>

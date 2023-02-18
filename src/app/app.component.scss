@@ -12,12 +12,27 @@
   background-size: cover;
 }
 
-.form-container{
+.form-container {
   width: 100%;
   background-color: var(--white);
 }
 
-@media screen and (max-width: 900px) {
+.card-preview {
+  height: 100vh;
+  .card-front {
+    position: absolute;
+    top: 18%;
+    left: 7%;
+  }
+
+  .card-back {
+    position: absolute;
+    bottom: 28%;
+    left: 13%;
+  }
+}
+
+@media screen and (max-width: 1430px) {
   .container {
     flex-direction: column;
   }
@@ -25,5 +40,20 @@
     width: 100vw;
     height: 35vh;
     background-image: url('../assets/images/bg-main-mobile.png');
+  }
+
+  .card-preview {
+    position: absolute;
+    .card-front {
+      img {
+        width: 80vw;
+      }
+    }
+
+    .card-back {
+      img {
+        width: 80vw;
+      }
+    }
   }
 }
