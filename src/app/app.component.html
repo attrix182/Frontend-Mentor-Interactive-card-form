@@ -5,6 +5,7 @@
   </aside>
 
   <section class="form-container">
-    <app-form-credit-card (getCardForm)="card = $event"></app-form-credit-card>
+    <app-complete (continue)="completed = $event" *ngIf="completed"></app-complete>
+    <app-form-credit-card  *ngIf="!completed" (confirm)="onConfirm($event)" (getCardForm)="card = $event"></app-form-credit-card>
   </section>
 </section>

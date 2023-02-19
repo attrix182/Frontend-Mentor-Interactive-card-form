@@ -58,18 +58,15 @@
 
       <div class="cvc-container">
         <label for="securityCode">CVC</label>
-        <input
-          maxlength="4"
-          type="text"
-          placeholder="e.g. 123"
-          formControlName="cvc"
-          [class]="isValidField('cvc')"
-        />
+        <input maxlength="4" type="text" placeholder="e.g. 123" formControlName="cvc" [class]="isValidField('cvc')" />
 
         <small class="msg-error" *ngIf="showError('cvc')">{{ getErrorMessage('cvc') }}</small>
       </div>
     </div>
 
-    <button (click)="submitForm()">Confirm</button>
+    <button (click)="submitForm()">
+      <div *ngIf="loading" class="spinner"></div>
+      <div *ngIf="!loading">Confirm</div>
+    </button>
   </form>
 </section>

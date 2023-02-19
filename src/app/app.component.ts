@@ -15,4 +15,11 @@ export class AppComponent {
     cvc: '000'
   };
   card: CardModel = this.defaultCard;
+  completed:boolean = false;
+
+
+  onConfirm(event: boolean) {
+
+    this.completed = event;
+  }
 }

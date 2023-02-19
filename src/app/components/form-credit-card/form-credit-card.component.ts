@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { CardModel } from 'src/app/models/card.model';
 import { ValidatorFormUtility } from 'src/app/shared/validator-form.utility';
 
 @Component({
@@ -8,7 +9,9 @@ import { ValidatorFormUtility } from 'src/app/shared/validator-form.utility';
   styleUrls: ['./form-credit-card.component.scss']
 })
 export class FormCreditCardComponent extends ValidatorFormUtility implements OnInit {
-  @Output('getCardForm') getCardForm = new EventEmitter<any>();
+  @Output('getCardForm') getCardForm = new EventEmitter<CardModel>();
+  @Output('confirm') confirm = new EventEmitter<boolean>();
+  loading: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
     super();
@@ -35,7 +38,7 @@ export class FormCreditCardComponent extends ValidatorFormUtility implements OnI
       name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
       cardNumber: [
         '',
-        [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(16), Validators.maxLength(18)]
+        [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(16), Validators.maxLength(19)]
       ],
       expirationDateMonth: [
         '',
@@ -76,15 +79,22 @@ export class FormCreditCardComponent extends ValidatorFormUtility implements OnI
     };
   }
 
-  submitForm() {
-    console.log(this.form.value);
-    this.getCardForm.emit(this.form.value);
-    this.form.valid ? this.form.reset() : this.form.markAllAsTouched();
-  }
-
   wordBreaker() {
     let breakpoints = [4, 9, 14];
     let cardNumber = this.form.get('cardNumber').value;
     if (breakpoints.includes(cardNumber.length)) this.form.get('cardNumber').setValue(cardNumber + ' ');
+  }
+
+  submitForm() {
+    this.form.valid ? this.emitForm(2000) : this.form.markAllAsTouched();
+
+  }
+
+  emitForm(delay:number) {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.confirm.emit(true);
+    }, delay);
   }
 }

@@ -80,26 +80,6 @@ form {
       overflow: hidden;
     }
   }
-
-  button {
-    cursor: pointer;
-    margin-top: 1vh;
-    font-weight: 300;
-    width: 100%;
-    padding: 0.8em;
-    height: 58px;
-    border-radius: 0.5em;
-    border: none;
-    background: var(--very-dark-violet);
-    color: var(--white);
-    font-size: 1.1em;
-    letter-spacing: 1px;
-  }
-
-  button:hover {
-    background: var(--very-dark-violet);
-    opacity: 0.9;
-  }
 }
 
 @media screen and (max-width: 1430px) {
