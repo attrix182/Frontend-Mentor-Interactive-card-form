@@ -45,7 +45,7 @@ form {
 
     .expiration-date {
       width: 50%;
-
+      white-space: nowrap;
       .expiration-date-inputs {
         display: flex;
         flex-direction: row;
@@ -95,5 +95,6 @@ form {
 @media screen and (max-width: 420px) {
   form {
     width: 100%;
+
   }
 }
