@@ -1,5 +1,4 @@
-:root{
-
+:root {
   --linear-gradient: hsl(249, 99%, 64%), hsl(278, 94%, 30%);
   --red: hsl(0, 100%, 66%);
   --white: hsl(0, 0%, 100%);
@@ -9,11 +8,10 @@
   --light-violet: hsla(275, 81%, 41%, 0.744);
 }
 
-*{
+* {
   font-family: 'Space Grotesk', sans-serif;
   margin: 0;
 }
-
 
 label {
   letter-spacing: 1.8px;
@@ -23,7 +21,7 @@ label {
 
 input {
   padding: 0.5em;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   border: 1px solid #ccc;
   font-size: 1.1em;
   cursor: pointer;
@@ -43,18 +41,17 @@ input::placeholder {
   border: 0.2px solid var(--red) !important;
 }
 
-
 button {
   cursor: pointer;
   margin-top: 1vh;
   font-weight: 300;
   width: 100%;
   padding: 0.8em;
-  height: 58px;
+  height: 52px;
   border-radius: 0.5em;
   border: none;
   background: var(--very-dark-violet);
-  color: var(--white);
+  color: var(--light-grayish-violet);
   font-size: 1.1em;
   letter-spacing: 1px;
 }
@@ -64,7 +61,7 @@ button:hover {
   opacity: 0.9;
 }
 
-.spinner{
+.spinner {
   border: 0.2em solid var(--light-grayish-violet);
   border-top: 0.2em solid var(--very-dark-violet);
   border-radius: 50%;
@@ -75,6 +72,10 @@ button:hover {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
