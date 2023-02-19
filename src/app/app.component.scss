@@ -35,43 +35,9 @@
     margin-top: 14vh;
   }
 
-  .card-preview-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.6em;
-
-    .card-preview {
-      margin-top: -30px;
-
-      .card-front {
-        right: 10vw;
-        top: 23vh;
-        z-index: 1;
-        .front-image {
-          max-width: 80vw;
-        }
-      }
-
-      .card-back {
-        margin-left: 15vw;
-        bottom: 20vh;
-        img {
-          max-width: 80vw;
-        }
-      }
-    }
-  }
 }
 
 @media screen and (min-width: 2300px) {
-  .card-front {
-    margin-left: 6vw !important;
-  }
-
-  .card-back {
-    margin-left: 10vw !important;
-  }
 
   .form-container {
     width: 40vw;

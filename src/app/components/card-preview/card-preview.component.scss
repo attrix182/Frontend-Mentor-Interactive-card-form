@@ -3,7 +3,18 @@
   height: 100%;
 }
 
+.card:hover{
+  transform: scale(1.1);
+}
+
 .card-preview {
+  user-select: none;
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
   margin-top: 20vh;
   .card-front {
     margin-bottom: 3vh;
@@ -50,6 +61,7 @@
   }
 
   .card-back {
+    position: relative;
     margin-left: 18vw;
     position: relative;
     .card-cvc {
@@ -65,9 +77,7 @@
   }
 }
 
-
 @media screen and (max-width: 1200px) {
-
   .card-preview-container {
     display: flex;
     flex-direction: column;
@@ -75,22 +85,21 @@
     font-size: 0.6em;
     overflow: hidden;
     .card-preview {
-        margin-top: -30px;
+      margin-top: -30px;
 
       .card-front {
         right: 10vw;
         top: 23vh;
         z-index: 1;
-        .front-image{
+        .front-image {
           max-width: 80vw;
         }
-
       }
 
       .card-back {
         margin-left: 15vw;
         bottom: 20vh;
-        img{
+        img {
           max-width: 80vw;
         }
       }
@@ -106,5 +115,10 @@
   .card-back {
     margin-left: 10vw !important;
   }
+}
 
+@media (hover: none) {
+.card:hover{
+  transform: scale(1);
+}
 }
